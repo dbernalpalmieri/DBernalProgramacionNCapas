@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f3a747ea9b194c37890637eb5a1ef3a1" Name="Diagram1">
+        <EntityTypeShape EntityType="DBernalProgramacionNCapasModel.Aseguradora" Width="1.5" PointX="5.25" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBernalProgramacionNCapasModel.Colonia" Width="1.5" PointX="6" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBernalProgramacionNCapasModel.Dependiente" Width="1.5" PointX="11" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBernalProgramacionNCapasModel.DependienteTipo" Width="1.5" PointX="8.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBernalProgramacionNCapasModel.Direccion" Width="1.5" PointX="8.25" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBernalProgramacionNCapasModel.Empleado" Width="1.5" PointX="13" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBernalProgramacionNCapasModel.Empresa" Width="1.5" PointX="10.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBernalProgramacionNCapasModel.Estado" Width="1.5" PointX="1.5" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBernalProgramacionNCapasModel.EstadoCivil" Width="1.5" PointX="8.75" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBernalProgramacionNCapasModel.Municipio" Width="1.5" PointX="3.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBernalProgramacionNCapasModel.Pai" Width="1.5" PointX="1.5" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBernalProgramacionNCapasModel.Rol" Width="1.5" PointX="0.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBernalProgramacionNCapasModel.Usuario" Width="1.5" PointX="3" PointY="1.625" IsExpanded="true" />
+        <AssociationConnector Association="DBernalProgramacionNCapasModel.FK_IdUsuarioAseguradora" ManuallyRouted="false" />
+        <AssociationConnector Association="DBernalProgramacionNCapasModel.FK_IdColonia" ManuallyRouted="false" />
+        <AssociationConnector Association="DBernalProgramacionNCapasModel.FK_IdMunicipio" ManuallyRouted="false" />
+        <AssociationConnector Association="DBernalProgramacionNCapasModel.FK__Dependien__Estad__59063A47" ManuallyRouted="false" />
+        <AssociationConnector Association="DBernalProgramacionNCapasModel.FK_IdDependienteTipo" ManuallyRouted="false" />
+        <AssociationConnector Association="DBernalProgramacionNCapasModel.FK_IdUsuario" ManuallyRouted="false" />
+        <AssociationConnector Association="DBernalProgramacionNCapasModel.FK_IdEmpresaEmpleado" ManuallyRouted="false" />
+        <AssociationConnector Association="DBernalProgramacionNCapasModel.FK_IdEstado" ManuallyRouted="false" />
+        <AssociationConnector Association="DBernalProgramacionNCapasModel.FK_IdPais" ManuallyRouted="false" />
+        <AssociationConnector Association="DBernalProgramacionNCapasModel.FK__Usuario__IdRol__267ABA7A" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

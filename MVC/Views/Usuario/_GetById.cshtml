@@ -1,0 +1,219 @@
+﻿@model ModelLayer.Usuario
+
+@{
+    ViewBag.Title = "Usuario Detalle";
+}
+
+<div class="container container-fluid">
+    <h2>@ViewBag.Title</h2>
+
+    <div class="row mt-3">
+        <div class="col-sm-12">
+            <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                <strong>@ViewBag.Message</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <table class="table table-dark table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        @*@Html.DisplayNameFor(model => model.Nombre)*@
+                        Nombre Completo
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Sexo)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Email)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.UserName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Telefono)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Celular)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Curp)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FechaNacimiento)
+                    </th>
+                    <th>
+                        Rol
+                        @*@Html.DisplayNameFor(model => model.Rol.Nombre)*@
+                    </th>
+                    <th>Acciones</th>
+
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr>
+                    @*<td>
+                            @Html.DisplayFor(modelItem => item.IdUsuario)
+                        </td>*@
+                    <td>
+                        @Html.DisplayFor(model => model.Nombre) @Html.DisplayFor(model => model.ApellidoPaterno) @Html.DisplayFor(model => model.ApellidoMaterno)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.Sexo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.Email)
+                    </td>
+                    @*<td>
+                            @Html.DisplayFor(modelItem => item.Password)
+                        </td>*@
+                    <td>
+                        @Html.DisplayFor(model => model.UserName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.Telefono)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.Celular)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.Curp)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.FechaNacimiento)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.Rol.Nombre)
+                    </td>
+                    @*<td class="visually-hidden">
+                            @Html.DisplayFor(modelItem => item.Rol.IdRol)
+                        </td>*@
+                    <td>
+                        <div class="d-flex justify-content-center align-items-center">
+                            <button onclick="location.href = '@Url.Action("Form","Usuario", new { IdUsuario = Model.IdUsuario })';"
+                                    class="btn btn-warning me-2" title="Editar">
+                                <i class="bi bi-pen"></i>
+                            </button>
+                            <a class="btn btn-danger bi bi-trash-fill" href="@Url.Action("Delete", "Usuario", new { IdUsuario = Model.IdUsuario })"
+                               onclick="return confirm('¿Estas seguro que deseas eliminar este registro?');"></a>
+                        </div>
+                        @*Html.ActionLink("Ver", "Detalle", new { IdUsuario = item.IdUsuario }, new { @class = "btn btn-success" })  |*@
+                        @*Html.ActionLink("Eliminar", "Delete", new { IdUsuario = item.IdUsuario }, new { @class = "btn btn-danger" }) *@
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h4>Usuario</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.IdUsuario)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.IdUsuario)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Nombre)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ApellidoPaterno)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ApellidoPaterno)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ApellidoMaterno)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ApellidoMaterno)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Sexo)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Sexo)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Password)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Password)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.UserName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UserName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Telefono)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Telefono)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Celular)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Celular)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Curp)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Curp)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.FechaNacimiento)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FechaNacimiento)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        <div class="me-3">
+            <a class="btn btn-danger bi bi-arrow-left-square-fill" href="@Url.Action("GetAll", "Usuario")"> Regresar</a>
+        </div>
+        @Html.ActionLink("Editar", "Form", new { IdUsuario = Model.IdUsuario }) |
+        @Html.ActionLink("Back to List", "GetAll")
+    </p>
+</div>
