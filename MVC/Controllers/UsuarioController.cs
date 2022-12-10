@@ -16,10 +16,45 @@ namespace MVC.Controllers
     {
         string urlAPI = System.Configuration.ConfigurationManager.AppSettings["DBernalProgramacionNCapas"];
 
+
+        [HttpGet]
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Login(string user_name, string password)
+        {
+
+            return View();
+        }
+
         Result result = new Result();
         [HttpGet]
         public ActionResult GetAll()
         {
+            //ModelLayer.Usuario user = new ModelLayer.Usuario();
+            //user.Rol = new ModelLayer.Rol();
+
+            //ModelLayer.Result result = BusinessLayer.Usuario.GetAllEF(user);
+            //Result resultRoles = BusinessLayer.Rol.GetAllEF();
+
+            //ViewBag.Message = result.Message;
+
+            //if (result.Correct && result.Objects.Count > 0 && resultRoles.Correct)
+            //{
+            //    //IEnumerable<ModelLayer.Usuario> usuarios = result.Objects.OfType<ModelLayer.Usuario>().ToList();
+            //    ModelLayer.Usuario usuario = new ModelLayer.Usuario();
+            //    usuario.Rol = new ModelLayer.Rol();
+            //    usuario.Rol.Roles = resultRoles.Objects;
+
+            //    usuario.Usuarios = result.Objects;
+            //    return View(usuario);
+            //}
+            //return View("/");
+
+
             ModelLayer.Result result = new ModelLayer.Result();
             try
             {
@@ -79,7 +114,7 @@ namespace MVC.Controllers
             }
             else
             {
-                usuario.Usuarios = new List<object> { };    
+                usuario.Usuarios = new List<object> { };
             }
             return View(usuario);
         }
@@ -101,6 +136,8 @@ namespace MVC.Controllers
             //    return View(usuario);
             //}
             //return View("/");
+
+
             ModelLayer.Result result = new ModelLayer.Result();
             try
             {
@@ -111,7 +148,7 @@ namespace MVC.Controllers
                     httpClient.BaseAddress = new Uri(urlAPI);
 
 
-                    HttpContent content = new StringContent(JsonConvert.SerializeObject(usuario) , Encoding.UTF8, "application/json");
+                    HttpContent content = new StringContent(JsonConvert.SerializeObject(usuario), Encoding.UTF8, "application/json");
 
                     //Sending request to find web api REST service resource using HttpClient
                     var request = httpClient.PostAsync("Usuario/GetAll", content);

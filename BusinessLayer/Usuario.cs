@@ -584,6 +584,50 @@ namespace BusinessLayer
             return result;
         }
 
+        public static Result GetByUsernameEmail(string UsernameEmail)
+        {
+            Result result = new Result();
+            try
+            {
+                using (DBernalProgramacionNCapasEntities context = new DBernalProgramacionNCapasEntities())
+                {
+
+                    // Parámetros que nos regresa el procedimiento almacenado
+                    ObjectParameter Mensaje = new ObjectParameter("Mensaje", typeof(string));
+                    ObjectParameter Found = new ObjectParameter("Found", typeof(bool));
+
+
+
+                    var execute = context.UsuarioGetByUserNameEmail(UsernameEmail, Mensaje, Found).SingleOrDefault();
+
+
+                    // Recuperamos el valor del parámetro que nos devuelve la base de datos
+                    result.Message = $"{Convert.ToString(Mensaje.Value)}";
+                    result.Correct = Convert.ToBoolean(Found.Value);
+
+                    if (execute != null)
+                    {
+
+                        ModelLayer.Usuario usuario = new ModelLayer.Usuario();
+
+                        usuario.Email = execute.Email;
+                        usuario.Password = execute.Password;
+                        usuario.UserName = execute.UserName;
+
+                        result.Object = usuario;
+                    }
+                }
+            }
+            catch (Exception error)
+            {
+                result.Exeption = error;
+                result.Message = $"Ups ocurrió un error: {error.Message}";
+                result.Correct = false;
+            }
+            return result;
+        }
+
+
 
         public static Result DeleteEF(int IdUsuario)
         {

@@ -661,5 +661,14 @@ namespace DataLayer_EF
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UsuarioUpdate", idUsuarioParameter, nombreParameter, apellidoPaternoParameter, apellidoMaternoParameter, sexoParameter, fechaNacimientoParameter, emailParameter, passwordParameter, userNameParameter, idRolParameter, telefonoParameter, celularParameter, cURPParameter, imagenParameter, calleParameter, numeroInteriorParameter, numeroExteriorParameter, idColoniaParameter, mensaje);
         }
+    
+        public virtual ObjectResult<UsuarioGetByUserNameEmail_Result> UsuarioGetByUserNameEmail(string userNameEmail, ObjectParameter mensaje, ObjectParameter found)
+        {
+            var userNameEmailParameter = userNameEmail != null ?
+                new ObjectParameter("UserNameEmail", userNameEmail) :
+                new ObjectParameter("UserNameEmail", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UsuarioGetByUserNameEmail_Result>("UsuarioGetByUserNameEmail", userNameEmailParameter, mensaje, found);
+        }
     }
 }

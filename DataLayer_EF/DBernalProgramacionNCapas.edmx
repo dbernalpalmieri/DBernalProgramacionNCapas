@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DBernalProgramacionNCapasModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DBernalProgramacionNCapasModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Aseguradora">
           <Key>
             <PropertyRef Name="IdAseguradora" />
@@ -440,6 +440,11 @@
           <Parameter Name="ApellidoPaterno" Type="varchar" Mode="In" />
           <Parameter Name="IdRol" Type="tinyint" Mode="In" />
         </Function>
+        <Function Name="UsuarioGetByUserNameEmail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserNameEmail" Type="varchar" Mode="In" />
+          <Parameter Name="Mensaje" Type="varchar" Mode="InOut" />
+          <Parameter Name="Found" Type="bit" Mode="InOut" />
+        </Function>
         <Function Name="UsuarioUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IdUsuario" Type="int" Mode="In" />
           <Parameter Name="Nombre" Type="varchar" Mode="In" />
@@ -516,8 +521,7 @@
             <End Role="Aseguradora" EntitySet="Aseguradora" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DBernalProgramacionNCapasModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -864,7 +868,7 @@
             <Parameter Name="Mensaje" Mode="InOut" Type="String" />
           </FunctionImport>
           <FunctionImport Name="AseguradoraGet" ReturnType="Collection(DBernalProgramacionNCapasModel.AseguradoraGet_Result)">
-            <Parameter Name="IdAseguradora" Mode="In" Type="Int32" />
+          <Parameter Name="IdAseguradora" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="AseguradoraUpdate">
             <Parameter Name="Nombre" Mode="In" Type="String" />
@@ -873,7 +877,7 @@
             <Parameter Name="Mensaje" Mode="InOut" Type="String" />
           </FunctionImport>
           <FunctionImport Name="ColoniaGetByIdMunicipio" ReturnType="Collection(DBernalProgramacionNCapasModel.ColoniaGetByIdMunicipio_Result)">
-            <Parameter Name="IdMunicipio" Mode="In" Type="Int32" />
+          <Parameter Name="IdMunicipio" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="DependienteAdd">
             <Parameter Name="NumeroEmpleado" Mode="In" Type="String" />
@@ -894,13 +898,13 @@
             <Parameter Name="Mensaje" Mode="InOut" Type="String" />
           </FunctionImport>
           <FunctionImport Name="DependienteGet" ReturnType="Collection(DBernalProgramacionNCapasModel.DependienteGet_Result)">
-            <Parameter Name="IdDependiente" Mode="In" Type="Int32" />
+          <Parameter Name="IdDependiente" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="DependienteGetByIdNumeroEmpleado" ReturnType="Collection(DBernalProgramacionNCapasModel.DependienteGetByIdNumeroEmpleado_Result)">
-            <Parameter Name="NumeroEmpleado" Mode="In" Type="String" />
+          <Parameter Name="NumeroEmpleado" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="DependienteTipoGet" ReturnType="Collection(DBernalProgramacionNCapasModel.DependienteTipoGet_Result)">
-            <Parameter Name="IdDependienteTipo" Mode="In" Type="Int32" />
+          <Parameter Name="IdDependienteTipo" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="DependienteUpdate">
             <Parameter Name="IdDependiente" Mode="In" Type="Int32" />
@@ -937,7 +941,7 @@
             <Parameter Name="Mensaje" Mode="InOut" Type="String" />
           </FunctionImport>
           <FunctionImport Name="EmpleadoGet" ReturnType="Collection(DBernalProgramacionNCapasModel.EmpleadoGet_Result)">
-            <Parameter Name="NumeroEmpleado" Mode="In" Type="String" />
+          <Parameter Name="NumeroEmpleado" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="EmpleadoUpdate">
             <Parameter Name="NumeroEmpleado" Mode="In" Type="String" />
@@ -981,19 +985,19 @@
             <Parameter Name="Mensaje" Mode="InOut" Type="String" />
           </FunctionImport>
           <FunctionImport Name="EstadoCivilGet" ReturnType="Collection(DBernalProgramacionNCapasModel.EstadoCivilGet_Result)">
-            <Parameter Name="IdEstadoCivil" Mode="In" Type="Int32" />
+          <Parameter Name="IdEstadoCivil" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="EstadoGetByIdPais" ReturnType="Collection(DBernalProgramacionNCapasModel.EstadoGetByIdPais_Result)">
-            <Parameter Name="IdPais" Mode="In" Type="Int32" />
+          <Parameter Name="IdPais" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="MunicipioGetByIdEstado" ReturnType="Collection(DBernalProgramacionNCapasModel.MunicipioGetByIdEstado_Result)">
-            <Parameter Name="IdEstado" Mode="In" Type="Int32" />
+          <Parameter Name="IdEstado" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="PaisGetAll" ReturnType="Collection(DBernalProgramacionNCapasModel.PaisGetAll_Result)">
-            <Parameter Name="IdPais" Mode="In" Type="Int32" />
+          <Parameter Name="IdPais" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="RolGet" ReturnType="Collection(DBernalProgramacionNCapasModel.RolGet_Result)">
-            <Parameter Name="IdRol" Mode="In" Type="Int32" />
+          <Parameter Name="IdRol" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="UsuarioAdd">
             <Parameter Name="Nombre" Mode="In" Type="String" />
@@ -1050,6 +1054,11 @@
             <Parameter Name="NumeroExterior" Mode="In" Type="String" />
             <Parameter Name="IdColonia" Mode="In" Type="Int32" />
             <Parameter Name="Mensaje" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UsuarioGetByUserNameEmail" ReturnType="Collection(DBernalProgramacionNCapasModel.UsuarioGetByUserNameEmail_Result)">
+            <Parameter Name="UserNameEmail" Mode="In" Type="String" />
+            <Parameter Name="Mensaje" Mode="InOut" Type="String" />
+            <Parameter Name="Found" Mode="InOut" Type="Boolean" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="AseguradoraGet_Result">
@@ -1152,6 +1161,37 @@
           <Property Type="String" Name="Nombre" Nullable="false" MaxLength="50" />
         </ComplexType>
         <ComplexType Name="UsuarioGet_Result">
+          <Property Type="Int32" Name="IdUsuario" Nullable="false" />
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ApellidoPaterno" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ApellidoMaterno" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Sexo" Nullable="false" MaxLength="2" />
+          <Property Type="DateTime" Name="FechaNacimiento" Nullable="false" />
+          <Property Type="String" Name="Email" Nullable="false" MaxLength="254" />
+          <Property Type="String" Name="Password" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="UserName" Nullable="false" MaxLength="10" />
+          <Property Type="Byte" Name="IdRol" Nullable="false" />
+          <Property Type="String" Name="Telefono" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Celular" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="CURP" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Imagen" Nullable="true" />
+          <Property Type="Boolean" Name="Status" Nullable="false" />
+          <Property Type="String" Name="RolNombre" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="IdDireccion" Nullable="false" />
+          <Property Type="String" Name="Calle" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="NumeroInterior" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="NumeroExterior" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="IdColonia" Nullable="false" />
+          <Property Type="String" Name="CodigoPostal" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ColoniaNombre" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="IdMunicipio" Nullable="false" />
+          <Property Type="String" Name="MunicipioNombre" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="IdEstado" Nullable="false" />
+          <Property Type="String" Name="EstadoNombre" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="IdPais" Nullable="false" />
+          <Property Type="String" Name="PaisNombre" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="UsuarioGetByUserNameEmail_Result">
           <Property Type="Int32" Name="IdUsuario" Nullable="false" />
           <Property Type="String" Name="Nombre" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="ApellidoPaterno" Nullable="false" MaxLength="50" />
@@ -1537,6 +1577,41 @@
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="UsuarioUpdate" FunctionName="DBernalProgramacionNCapasModel.Store.UsuarioUpdate" />
+          <FunctionImportMapping FunctionImportName="UsuarioGetByUserNameEmail" FunctionName="DBernalProgramacionNCapasModel.Store.UsuarioGetByUserNameEmail">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBernalProgramacionNCapasModel.UsuarioGetByUserNameEmail_Result">
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="ApellidoPaterno" ColumnName="ApellidoPaterno" />
+                <ScalarProperty Name="ApellidoMaterno" ColumnName="ApellidoMaterno" />
+                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+                <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Celular" ColumnName="Celular" />
+                <ScalarProperty Name="CURP" ColumnName="CURP" />
+                <ScalarProperty Name="Imagen" ColumnName="Imagen" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="RolNombre" ColumnName="RolNombre" />
+                <ScalarProperty Name="IdDireccion" ColumnName="IdDireccion" />
+                <ScalarProperty Name="Calle" ColumnName="Calle" />
+                <ScalarProperty Name="NumeroInterior" ColumnName="NumeroInterior" />
+                <ScalarProperty Name="NumeroExterior" ColumnName="NumeroExterior" />
+                <ScalarProperty Name="IdColonia" ColumnName="IdColonia" />
+                <ScalarProperty Name="CodigoPostal" ColumnName="CodigoPostal" />
+                <ScalarProperty Name="ColoniaNombre" ColumnName="ColoniaNombre" />
+                <ScalarProperty Name="IdMunicipio" ColumnName="IdMunicipio" />
+                <ScalarProperty Name="MunicipioNombre" ColumnName="MunicipioNombre" />
+                <ScalarProperty Name="IdEstado" ColumnName="IdEstado" />
+                <ScalarProperty Name="EstadoNombre" ColumnName="EstadoNombre" />
+                <ScalarProperty Name="IdPais" ColumnName="IdPais" />
+                <ScalarProperty Name="PaisNombre" ColumnName="PaisNombre" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

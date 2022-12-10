@@ -141,6 +141,9 @@
     <Compile Include="Usuario.cs">
       <DependentUpon>DBernalProgramacionNCapas.tt</DependentUpon>
     </Compile>
+    <Compile Include="UsuarioGetByUserNameEmail_Result.cs">
+      <DependentUpon>DBernalProgramacionNCapas.tt</DependentUpon>
+    </Compile>
     <Compile Include="UsuarioGet_Result.cs">
       <DependentUpon>DBernalProgramacionNCapas.tt</DependentUpon>
     </Compile>

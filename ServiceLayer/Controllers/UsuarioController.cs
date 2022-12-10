@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Ajax.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -48,6 +49,30 @@ namespace ServiceLayer.Controllers
             else
             {
                 return BadRequest("Especifica el Id del objeto a buscar");
+            }
+
+        }
+
+        // GET api/<UsuarioController>/5
+        [HttpGet]
+        [Route("api/Usuario/GetByUsernameEmail/{UsernameEmail}")]
+        public IHttpActionResult GetByUsernameEmail(string UsernameEmail)
+        {
+            if (!UsernameEmail.IsNullOrWhiteSpace())
+            {
+                ModelLayer.Result result = BusinessLayer.Usuario.GetByUsernameEmail(UsernameEmail);
+                if (result.Correct)
+                {
+                    return Ok(result);
+                }
+                else
+                {
+                    return NotFound();
+                }
+            }
+            else
+            {
+                return BadRequest();
             }
 
         }

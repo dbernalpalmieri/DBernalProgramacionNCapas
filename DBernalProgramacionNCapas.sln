@@ -14,8 +14,13 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer_EF", "DataLayer_EF\DataLayer_EF.csproj", "{C92A02F7-0851-4047-83FC-9CADD6CC9C63}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PresentationLayer_MVC", "MVC\PresentationLayer_MVC.csproj", "{1BB5C3C5-E949-47E5-A2EB-E430CBF7EBF2}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1E894703-9CF4-4281-BAF8-16B33975B1D8} = {1E894703-9CF4-4281-BAF8-16B33975B1D8}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceLayer", "ServiceLayer\ServiceLayer.csproj", "{4C8240DE-E514-4ADD-9B29-B5A067E8A070}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SL_WCF", "SL_WCF\SL_WCF.csproj", "{1E894703-9CF4-4281-BAF8-16B33975B1D8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +56,10 @@ Global
 		{4C8240DE-E514-4ADD-9B29-B5A067E8A070}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C8240DE-E514-4ADD-9B29-B5A067E8A070}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4C8240DE-E514-4ADD-9B29-B5A067E8A070}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E894703-9CF4-4281-BAF8-16B33975B1D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E894703-9CF4-4281-BAF8-16B33975B1D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E894703-9CF4-4281-BAF8-16B33975B1D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E894703-9CF4-4281-BAF8-16B33975B1D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
