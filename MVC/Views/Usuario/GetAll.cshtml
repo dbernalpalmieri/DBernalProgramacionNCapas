@@ -4,10 +4,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css" />
+
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-components-web/4.0.0/material-components-web.min.css" />
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.material.min.css" />
+
 
 
 
@@ -65,32 +66,19 @@
             </div>
         </div>
     </div>
-    <div class="table-responsive p-4">
+    <div class="table-responsive">
         <table class="table-striped" id="table_usuarios" style="width:100%">
             <thead>
                 <tr>
-                    @*<th>
-                    @Html.DisplayNameFor(model => model.IdUsuario)
-                    </th>*@
                     <th>
-                        @*@Html.DisplayNameFor(model => model.Nombre)*@
-                        Nombre Completo
+                        @Html.DisplayNameFor(model => model.NombreCompleto)
                     </th>
-                    @*<th>
-                    @Html.DisplayNameFor(model => model.ApellidoPaterno)
-                    </th>
-                    <th>
-                    @Html.DisplayNameFor(model => model.ApellidoMaterno)
-                    </th>*@
                     <th>
                         @Html.DisplayNameFor(model => model.Sexo)
                     </th>
                     <th>
                         @Html.DisplayNameFor(model => model.Email)
                     </th>
-                    @*<th>
-                    @Html.DisplayNameFor(model => model.Password)
-                    </th>*@
                     <th>
                         @Html.DisplayNameFor(model => model.UserName)
                     </th>
@@ -115,24 +103,6 @@
                     <th>
                         @Html.DisplayNameFor(model => model.Imagen)
                     </th>
-                    @*<th>
-                    @Html.DisplayNameFor(model => model.Direccion.Colonia.CodigoPostal)
-                    </th>
-                    <th>
-                    @Html.DisplayNameFor(model => model.Direccion.Colonia.Nombre)
-                    </th>
-                    <th>
-                    @Html.DisplayNameFor(model => model.Direccion.Colonia.Municipio.Nombre)
-                    </th>
-                    <th>
-                    @Html.DisplayNameFor(model => model.Direccion.Colonia.Municipio.Estado.Nombre)
-                    </th>
-                    <th>
-                    @Html.DisplayNameFor(model => model.Direccion.Colonia.Municipio.Estado.Pais.Nombre)
-                    </th>*@
-                    @*<th>
-                    @Html.DisplayNameFor(model => model.Rol.IdRol)
-                    </th>*@
                     <th> @Html.DisplayNameFor(model => model.Status)</th>
 
                     <th>Acciones</th>
@@ -144,11 +114,8 @@
                 @foreach (ModelLayer.Usuario item in Model.Usuarios)
                 {
                     <tr>
-                        @*<td>
-                    @Html.DisplayFor(modelItem => item.IdUsuario)
-                    </td>*@
                         <td>
-                            @Html.DisplayFor(modelItem => item.Nombre) @Html.DisplayFor(modelItem => item.ApellidoPaterno) @Html.DisplayFor(modelItem => item.ApellidoMaterno)
+                            @Html.DisplayFor(modelItem => item.NombreCompleto)
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Sexo)
@@ -156,9 +123,6 @@
                         <td>
                             @Html.DisplayFor(modelItem => item.Email)
                         </td>
-                        @*<td>
-                    @Html.DisplayFor(modelItem => item.Password)
-                    </td>*@
                         <td>
                             @Html.DisplayFor(modelItem => item.UserName)
                         </td>
@@ -215,25 +179,16 @@
                             }
 
                         </td>
-                        @*<td class="visually-hidden">
-                    @Html.DisplayFor(modelItem => item.Rol.IdRol)
-                    </td>*@
                         <td>
                             <div class="d-flex justify-content-center align-items-center">
                                 <button onclick="location.href = '@Url.Action("Form","Usuario", new { IdUsuario = item.IdUsuario })';"
                                     class="btn btn-warning me-2" title="Editar">
                                     <i class="bi bi-pen"></i>
                                 </button>
-                                @*<button onclick="location.href = '@Url.Action("GetById","Usuario", new { IdUsuario = item.IdUsuario })';"
-                            class="btn btn-success me-2" title="Ver Usuario">
-                            <i class="bi bi-person-badge-fill"></i>
-                            </button>*@
                                 <a class="btn btn-danger bi bi-trash-fill" href="@Url.Action("Delete", "Usuario", new { IdUsuario = item.IdUsuario })"
                                onclick="return confirm('¿Estas seguro que deseas eliminar este registro?');"></a>
                             </div>
-                            @*Html.ActionLink("Ver", "Detalle", new { IdUsuario = item.IdUsuario }, new { @class = "btn btn-success" })  |*@
-                            @*Html.ActionLink("Eliminar", "Delete", new { IdUsuario = item.IdUsuario }, new { @class = "btn btn-danger" }) *@
-                        </td>
+                           </td>
                     </tr>
                 }
             </tbody>
@@ -244,15 +199,15 @@
 </div>
 @section Scripts{
 
-    <script src="~/lib/jquery/dist/jquery.js"></script>
+    @*<script src="~/lib/jquery/dist/jquery.js"></script>*@
 
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.1/js/dataTables.material.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
-    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+    @*<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>*@
 
     <script>
         $(document).ready(function () {

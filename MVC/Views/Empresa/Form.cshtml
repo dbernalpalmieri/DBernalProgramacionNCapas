@@ -3,6 +3,14 @@
     ViewData["Title"] = "Form";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+<!-- MDB -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.css" rel="stylesheet" />
+
+
 <div class="container">
     <h1>@ViewBag.Title</h1>
     @if (ViewBag.Message != null)
@@ -17,7 +25,7 @@
         </div>
     }
     <div class="col-lg-12">
-        @using (Html.BeginForm(Html.BeginForm("Form", "Empresa", FormMethod.Post, new { enctype = "multipart/form-data" })))
+        @using (Html.BeginForm(Html.BeginForm("Form", "Empresa", FormMethod.Post, new { enctype = "multipart/form-data", id = "form" })))
         {
             <div class="form">
                 @Html.AntiForgeryToken()
@@ -30,44 +38,48 @@
                     @Html.HiddenFor(model => model.IdEmpresa)
                 </div>
 
-                <div class="d-flex mt-2 row">
+                <div class="d-flex row form-group">
                     <div class="col-md-6">
-                        <div class="form-group col-md-7">
-                            @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="input-group">
+                        <div class="form-group col-md-7 mb-4">
+
+                            <div class="form-outline input-group">
                                 <span class="input-group-text" id="basic_addon1"><i class="bi bi-fonts"></i></span>
-                                @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control", id = "input_nombre", placeholder = "Company" } })
+                                @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "form-label", @for = "input_nombre" })
                                 @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
                             </div>
                         </div>
-                        <div class="form-group col-md-7">
-                            @Html.LabelFor(model => model.Telefono, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="input-group">
+                        <div class="form-group col-md-7 mb-4">
+
+                            <div class="form-outline input-group">
                                 <span class="input-group-text" id="basic_addon1"><i class="bi bi-telephone-fill"></i></span>
-                                @Html.EditorFor(model => model.Telefono, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.EditorFor(model => model.Telefono, new { htmlAttributes = new { @class = "form-control", id = "input_telefono", placeholder = "XXXXXXXXXX" } })
+                                @Html.LabelFor(model => model.Telefono, htmlAttributes: new { @class = "form-label", @for = "input_telefono" })
                                 @Html.ValidationMessageFor(model => model.Telefono, "", new { @class = "text-danger" })
                             </div>
                         </div>
-                        <div class="form-group col-md-7">
-                            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="input-group">
+                        <div class="form-group col-md-7 mb-4">
+
+                            <div class="form-outline input-group">
                                 <span class="input-group-text" id="basic-addon1"><i class="bi bi-envelope-fill"></i></span>
-                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", type = "email", placeholder = "example@mail.com" } })
+                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", type = "email", id = "input_email", placeholder = "example@mail.com" } })
+                                @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "form-label", @for = "input_email" })
                                 @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
                             </div>
                         </div>
                         <div class="form-group col-md-7">
-                            @Html.LabelFor(model => model.DireccionWeb, htmlAttributes: new { @class = "control-label col-md-4" })
-                            <div class="input-group">
+
+                            <div class="form-outline input-group">
                                 <span class="input-group-text" id="basic-addon1"><i class="bi bi-globe2"></i></span>
-                                @Html.EditorFor(model => model.DireccionWeb, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.EditorFor(model => model.DireccionWeb, new { htmlAttributes = new { @class = "form-control", id = "input_direccionWeb", placeholder = "example.com" } })
+                                @Html.LabelFor(model => model.DireccionWeb, htmlAttributes: new { @class = "form-label", @for = "input_direccionWeb" })
                                 @Html.ValidationMessageFor(model => model.DireccionWeb, "", new { @class = "text-danger" })
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="form-group mt-2">
-                            @Html.LabelFor(model => model.Logo, "Logo Empresa", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Logo, "Logo Empresa", htmlAttributes: new { @class = "control-label" })
                             <div class="col-md-10 input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="basic-addon1"><i class="bi bi-card-image"></i></span>
@@ -93,10 +105,10 @@
                 </div>
                 <div class="d-flex mt-5 justify-content-center">
                     <div class="me-3">
-                        <a class="btn btn-danger bi bi-arrow-left-square-fill" href="@Url.Action("GetAll", "Empresa")" onclick="return confirm('¿No se guardaran los cambios, quieres continuar?')"> Regresar</a>
+                        <a class="btn btn-danger btn-rounded bi bi-arrow-left-square-fill" href="@Url.Action("GetAll", "Empresa")" onclick="return confirm('¿No se guardaran los cambios, quieres continuar?')"> Regresar</a>
                     </div>
                     <div class="">
-                        <button class="btn btn-success">
+                        <button class="btn btn-success btn-rounded">
                             <i class="bi bi-check-square-fill" type="submit"> Guardar</i>
                         </button>
                     </div>
@@ -109,8 +121,44 @@
 
 </div>
 @section Scripts{
+    <!-- MDB -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+
     <script type="text/javascript">
+        var error = false;
+        $(document).ready(function () {
+            $('#form').on('submit', function () {
+                
+                if ($('#input_nombre').val() == "") {
+                    error = true;
+                }
+                if ($('#input_telefono').val() == "") {
+                    error = true;
+                }
+                if ($('#input_email').val() == "") {
+                    error = true;
+                }
+                if ($('#input_direccionWeb').val() == "") {
+                    error = true;
+                }
+
+                if (error) {
+                    alert("Rellena todos los campos.")
+                    return false;
+                }
+                alert("registramos")
+            });
+
+            $('#input_nombre').on('blur', function () {
+                //var regex = /^[a-zA-Z0-9\u00C0-\u00FF ]{3,50}$/
+                //var input = $('#input_nombre').val();
+                //if (!regex.test(input)) {
+                //    error = true
+                //}
+            })
+
+        });
         function readImage(imagen) {
             var fileName = imagen.value;
             var idxDot = fileName.lastIndexOf(".") + 1;
