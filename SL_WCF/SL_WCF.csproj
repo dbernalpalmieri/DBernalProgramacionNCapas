@@ -105,13 +105,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj">
+    <ProjectReference Include="..\BL\BL.csproj">
       <Project>{8eec8dcc-d110-4e26-aa01-7f51593b58c1}</Project>
-      <Name>BusinessLayer</Name>
+      <Name>BL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ModelLayer\ModelLayer.csproj">
+    <ProjectReference Include="..\ML\ML.csproj">
       <Project>{6520199a-66d8-4709-96da-2274cf3b2e96}</Project>
-      <Name>ModelLayer</Name>
+      <Name>ML</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

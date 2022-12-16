@@ -4,7 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
-using ModelLayer;
+using ML;
 
 namespace SL_WCF
 {
@@ -14,26 +14,26 @@ namespace SL_WCF
     {
         [OperationContract]
         // Definimos el tipo de objeto al cual serán deseralizados los objects que retorna nuestro método
-        [ServiceKnownType(typeof(ModelLayer.Aseguradora))] // 
+        [ServiceKnownType(typeof(ML.Aseguradora))] // 
         SL_WCF.Result GetAll();
 
 
         [OperationContract]
-        [ServiceKnownType(typeof(ModelLayer.Aseguradora))]
+        [ServiceKnownType(typeof(ML.Aseguradora))]
         SL_WCF.Result GetById(int IdAseguradora);
 
 
         [OperationContract]
-        [ServiceKnownType(typeof(ModelLayer.Aseguradora))]
-        SL_WCF.Result Add(ModelLayer.Aseguradora aseguradora);
+        [ServiceKnownType(typeof(ML.Aseguradora))]
+        SL_WCF.Result Add(ML.Aseguradora aseguradora);
 
         [OperationContract]
-        [ServiceKnownType(typeof(ModelLayer.Result))]
-        SL_WCF.Result Update(ModelLayer.Aseguradora aseguradora);
+        [ServiceKnownType(typeof(ML.Result))]
+        SL_WCF.Result Update(ML.Aseguradora aseguradora);
 
 
         [OperationContract]
-        [ServiceKnownType(typeof(ModelLayer.Result))]
+        [ServiceKnownType(typeof(ML.Result))]
         SL_WCF.Result Delete(int IdAseguradora);
 
     }

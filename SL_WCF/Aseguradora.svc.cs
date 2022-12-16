@@ -1,4 +1,4 @@
-﻿using ModelLayer;
+﻿using ML;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -18,7 +18,7 @@ namespace SL_WCF
     {
         public SL_WCF.Result GetAll()
         {
-            ModelLayer.Result result = BusinessLayer.Aseguradora.GetAll();
+            ML.Result result = BL.Aseguradora.GetAll();
 
             return new SL_WCF.Result
             {
@@ -32,7 +32,7 @@ namespace SL_WCF
 
         public SL_WCF.Result GetById(int IdAseguradora)
         {
-            ModelLayer.Result result = BusinessLayer.Aseguradora.GetById(IdAseguradora);
+            ML.Result result = BL.Aseguradora.GetById(IdAseguradora);
 
             return new SL_WCF.Result
             {
@@ -44,9 +44,9 @@ namespace SL_WCF
             };
         }
 
-        public SL_WCF.Result Add(ModelLayer.Aseguradora aseguradora)
+        public SL_WCF.Result Add(ML.Aseguradora aseguradora)
         {
-            ModelLayer.Result result = BusinessLayer.Aseguradora.Add(aseguradora);
+            ML.Result result = BL.Aseguradora.Add(aseguradora);
 
             return new SL_WCF.Result
             {
@@ -58,9 +58,9 @@ namespace SL_WCF
             };
         }
 
-        public SL_WCF.Result Update(ModelLayer.Aseguradora aseguradora)
+        public SL_WCF.Result Update(ML.Aseguradora aseguradora)
         {
-            ModelLayer.Result result = BusinessLayer.Aseguradora.Update(aseguradora);
+            ML.Result result = BL.Aseguradora.Update(aseguradora);
 
             return new SL_WCF.Result
             {
@@ -74,7 +74,7 @@ namespace SL_WCF
 
         public SL_WCF.Result Delete(int IdAseguradora)
         {
-            ModelLayer.Result result = BusinessLayer.Aseguradora.Delete(IdAseguradora);
+            ML.Result result = BL.Aseguradora.Delete(IdAseguradora);
 
             return new SL_WCF.Result
             {
